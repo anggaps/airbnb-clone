@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { IconType } from 'react-icons';
 
@@ -20,6 +21,8 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
+      onClick={onClick}
+      disabled={disabled}
       className={`relative 
       disabled:opacity-70 
       disabled:cursor-not-allowed 

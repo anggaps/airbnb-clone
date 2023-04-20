@@ -15,7 +15,7 @@ interface ModalProps {
   actionLabel?: string;
   disable?: boolean;
   secondaryAction?: () => void;
-  secondarylabel?: string;
+  secondaryActionLabel?: string;
 }
 
 export default function Modal({
@@ -28,7 +28,7 @@ export default function Modal({
   actionLabel,
   disable,
   secondaryAction,
-  secondarylabel,
+  secondaryActionLabel,
 }: ModalProps) {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -156,7 +156,20 @@ export default function Modal({
                     w-full
                     '
                   >
-                    <Button label='my Button' />
+                    {secondaryAction && secondaryActionLabel && (
+                      <Button
+                        outline
+                        label={secondaryActionLabel}
+                        onClick={handleSecondaryAction}
+                        disabled={disable}
+                      />
+                    )}
+
+                    <Button
+                      label={actionLabel}
+                      onClick={handleSubmit}
+                      disabled={disable}
+                    />
                   </div>
                 </div>
               </div>
